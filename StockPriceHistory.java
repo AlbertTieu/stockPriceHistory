@@ -13,7 +13,7 @@ public class StockPriceHistory
      */
     public void run() {
         try {
-            Stock stock = YahooFinance.get(TICKER, true);
+            Stock stock = YahooFinance.get(TICKER,true);
             System.out.println(stock);
         } catch (Exception e) {
             System.out.println("Error in stock call");    
