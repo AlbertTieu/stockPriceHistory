@@ -18,7 +18,8 @@ public class StockPriceHistory
             Stock stock = YahooFinance.get(TICKER,true);
             System.out.println(stock);
             List list = stock.getHistory();
-            System.out.println(list);
+            System.out.println("Date" + "," + "Closing price");
+            System.out.println(list.getDate() + "," + list.getAdjClose());
         } catch (Exception e) {
             System.out.println("Error in stock call");    
         }
