@@ -1,5 +1,7 @@
 import yahoofinance.*;
 import java.util.Calendar;
+import java.util.List;
+
 /**
  * Retrieve historical stock prices
  */
@@ -15,6 +17,8 @@ public class StockPriceHistory
         try {
             Stock stock = YahooFinance.get(TICKER,true);
             System.out.println(stock);
+            List list = stock.getHistory();
+            System.out.println(list);
         } catch (Exception e) {
             System.out.println("Error in stock call");    
         }
