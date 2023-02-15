@@ -19,7 +19,9 @@ public class StockPriceHistory
             System.out.println(stock);
             List list = stock.getHistory();
             System.out.println("Date" + "," + "Closing price");
-            System.out.println(list.getDate() + "," + list.getAdjClose());
+            System.out.println(list);
+            //System.out.println(list.getDate() + "," + list.getAdjClose());
+            //System.out.println(date + "," + closingPrice);
         } catch (Exception e) {
             System.out.println("Error in stock call");    
         }
