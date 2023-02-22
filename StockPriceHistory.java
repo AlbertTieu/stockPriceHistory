@@ -1,5 +1,6 @@
 import yahoofinance.*;
 import java.util.Calendar;
+import yahoofinance.histquotes.Interval;
 import java.util.List;
 
 /**
@@ -15,11 +16,11 @@ public class StockPriceHistory
      */
     public void run() {
         try {
-            Stock stock = YahooFinance.get(TICKER,true);
+            Stock stock = YahooFinance.get(TICKER,Interval.DAILY);
             System.out.println(stock);
-            List list = stock.getHistory();
+            List histTICKER = stock.getHistory();
             System.out.println("Date" + "," + "Closing price");
-            System.out.println(list);
+            System.out.println(histTICKER);
             //System.out.println(list.getDate() + "," + list.getAdjClose());
             //System.out.println(date + "," + closingPrice);
         } catch (Exception e) {
