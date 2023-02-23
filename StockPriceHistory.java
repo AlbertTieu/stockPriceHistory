@@ -1,7 +1,9 @@
 import yahoofinance.*;
 import java.util.Calendar;
-import yahoofinance.histquotes.Interval;
 import java.util.List;
+import yahoofinance.histquotes.*;
+import yahoofinance.histquotes.HistoricalQuote.*;
+import java.math.BigDecimal;
 
 /**
  * Retrieve historical stock prices
@@ -17,10 +19,13 @@ public class StockPriceHistory
     public void run() {
         try {
             Stock stock = YahooFinance.get(TICKER,Interval.DAILY);
-            System.out.println(stock);
-            List histTICKER = stock.getHistory();
+            List<HistoricalQuote> list = stock.getHistory();
             System.out.println("Date" + "," + "Closing price");
-            System.out.println(histTICKER);
+            for(HistoricalQuote historicalQuote : list) {
+                System.out.print(formatDate(historicalQuote.getDate()));
+                System.out.print(",");
+                System.out.println(historicalQuote.getClose());
+            }
             //System.out.println(list.getDate() + "," + list.getAdjClose());
             //System.out.println(date + "," + closingPrice);
         } catch (Exception e) {
@@ -50,5 +55,6 @@ public class StockPriceHistory
         StockPriceHistory sph = new StockPriceHistory();
         sph.run();
     }
+
 }
 
