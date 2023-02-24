@@ -3,7 +3,7 @@ import java.util.Calendar;
 import java.util.List;
 import yahoofinance.histquotes.*;
 import yahoofinance.histquotes.HistoricalQuote.*;
-import java.math.BigDecimal;
+import java.math.*;
 
 /**
  * Retrieve historical stock prices
@@ -24,7 +24,7 @@ public class StockPriceHistory
             for(HistoricalQuote historicalQuote : list) {
                 System.out.print(formatDate(historicalQuote.getDate()));
                 System.out.print(",");
-                System.out.println(historicalQuote.getClose());
+                System.out.println(historicalQuote.getClose().setScale(2, RoundingMode.HALF_UP));
             }
             //System.out.println(list.getDate() + "," + list.getAdjClose());
             //System.out.println(date + "," + closingPrice);
